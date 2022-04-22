@@ -1,7 +1,11 @@
+//Hocam geocode modulunu doğru olarak yazdığımı düşünüyorum. Ancak yine de module not found yazıyor. 
+const { request } = require("express")
 const express = require("express")
 const fs = require("fs")
-const geocode = require("./test_geocode")
+//const geocode = require("./utils/test_geocode")
+//const weather = require("./utils/test_weather")
 
+//const utilsDirectory = path.join(__dirname,"../utils")
 const app = express()
 
 //portun belirlenmesi
@@ -38,6 +42,7 @@ app.get("/test_json",(req,res)=>{
 
 })
 
+
 //test_geocode sayfasi
 app.get("/test_geocode/:adress",(req,res)=>{
 
@@ -61,14 +66,27 @@ app.get("/test_geocode/:adress",(req,res)=>{
 
 })
 
-//test_weather sayfasi
-app.get("/test_weather",(req,res)=>{
+// //test_weather sayfasi
+// app.get("/test_weather",(req,res)=>{
 
+//     try {
+
+//         weather.weather(29.06667,40.18333,(error,{tempurature,pressure,humidity})=>{
+//             if(error){
+//                 res.send(error)
+//             }else{//hata gelmeyip başarıyla data gelmiştir
+//                const 
+//             }
+//         })
+        
+//     } catch (error) {
+//         return []
+//     }
 
     
-    res.send("<p>Ahmet Mert ÖZ</p>")
+//     //res.send("<p>Ahmet Mert ÖZ</p>")
 
-})
+// })
 
 
 
