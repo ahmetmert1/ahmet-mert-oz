@@ -7,12 +7,13 @@ const app = express()
 const port = process.env.PORT || 3000
 
 
-//anasayfa
+//anasayfa 
 app.get("/",(req,res)=>{
 
-   
+   const dataBuffer = fs.readFileSync("./public/index.html")
+   const dataBufferString = dataBuffer.toString()
 
-    res.send("Burasi Anasayfa!")
+    res.send(dataBufferString)
 
 })
 
