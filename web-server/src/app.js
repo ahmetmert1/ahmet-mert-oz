@@ -1,5 +1,6 @@
 const express = require("express")
 const fs = require("fs")
+const geocode = require("./test_geocode")
 
 const app = express()
 
@@ -38,11 +39,25 @@ app.get("/test_json",(req,res)=>{
 })
 
 //test_geocode sayfasi
-app.get("/test_geocode",(req,res)=>{
+app.get("/test_geocode/:adress",(req,res)=>{
 
-
+    const adress = req.params.adress
     
-    res.send("<p>Ahmet Mert ÖZ</p>")
+    try {
+
+        geocode.geocode(adress,(error,data)=>{
+            if(error){
+                res.send(error)
+            }else{//hata gelmeyip başarıyla data gelmiştir
+                res.send(data)
+            }
+        })
+        
+    } catch (error) {
+        return []
+    }
+    
+    //res.send("<p>Ahmet Mert ÖZ</p>")
 
 })
 
